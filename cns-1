@@ -1,0 +1,23 @@
+#include <stdio.h>
+
+int main() {
+    // Define a string using a character pointer
+    // Note: String literals are usually stored in read-only memory
+    char *str = "Hello World";
+
+    printf("Original string: %s\n", str);
+    printf("XOR result: ");
+
+    // Iterate through the string until the null terminator '\0'
+    for (int i = 0; str[i] != '\0'; i++) {
+        // Perform XOR operation with 0
+        char xor_char = str[i] ^ 0;
+        
+        // Display the result
+        putchar(xor_char);
+    }
+
+    printf("\n");
+
+    return 0;
+}
