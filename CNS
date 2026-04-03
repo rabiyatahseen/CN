@@ -1,0 +1,53 @@
+import java.util.*;
+
+public class CryptoExperiment3 {
+
+    static String substitutionEncrypt(String text) {
+        String alpha = "abcdefghijklmnopqrstuvwxyz";
+        String sub = "zyxwvutsrqponmlkjihgfedcba";
+        text = text.toLowerCase();
+        String result = "";
+
+        for (int i = 0; i < text.length(); i++) {
+            char ch = text.charAt(i);
+            int index = alpha.indexOf(ch);
+
+            if (index != -1)
+                result += sub.charAt(index);
+            else
+                result += ch;
+        }
+
+        return result;
+    }
+
+    static String substitutionDecrypt(String text) {
+        String alpha = "abcdefghijklmnopqrstuvwxyz";
+        String sub = "zyxwvutsrqponmlkjihgfedcba";
+        String result = "";
+
+        for (int i = 0; i < text.length(); i++) {
+            char ch = text.charAt(i);
+            int index = sub.indexOf(ch);
+
+            if (index != -1)
+                result += alpha.charAt(index);
+            else
+                result += ch;
+        }
+
+        return result;
+    }
+
+    public static void main(String[] args) {
+        String text = "HELLO";
+        int key = 3;
+
+        System.out.println("Original Text: " + text);
+
+        String s1 = substitutionEncrypt(text);
+        System.out.println("Substitution Encrypted: " + s1);
+
+        System.out.println("Substitution Decrypted: " + substitutionDecrypt(s1));
+    }
+}
